@@ -1,7 +1,5 @@
 import argparse
 
-# description — это текстовое описание программы,
-# оно будет показано пользователю при вызове справки (-h или --help)
 
 def main():
   parser = argparse.ArgumentParser(
@@ -10,5 +8,6 @@ def main():
 
   parser.add_argument('first_file')
   parser.add_argument('second_file')
+  parser.add_argument('-f', '--format', dest='format', metavar='FORMAT', help='set format of output')
 
   parser.parse_args()
