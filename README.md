@@ -1,2 +1,5 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/alexa-brave/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/alexa-brave/python-project-50/actions)
+
+## Install and demo gendiff with json:
+[![asciicast](https://asciinema.org/a/CmYp4mS9yFhxJqDX.svg)](https://asciinema.org/a/CmYp4mS9yFhxJqDX)
