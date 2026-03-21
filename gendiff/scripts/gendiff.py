@@ -1,5 +1,6 @@
 import argparse
 import json
+from ..diff import generate_diff
 
 
 def main():
@@ -17,3 +18,7 @@ def main():
     data1 = json.load(f)
   with open(args.second_file) as f:
     data2 = json.load(f)
+  
+  result = generate_diff(data1, data2)
+
+  return result
