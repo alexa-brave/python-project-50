@@ -12,3 +12,4 @@ dist/
 logs
 *.log
 uv.lock
+.coverage
