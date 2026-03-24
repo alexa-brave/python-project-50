@@ -1,0 +1,31 @@
+name: Python CI
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # git clone репозитория
+      - uses: actions/checkout@v6
+    # устанавливает Python нужной версии
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+        # установка uv и uv sync
+      - name: Install dependencies
+        run: |
+          pip install uv
+          make install
+      - name: Run linter and pytest
+        run: |
+          make lint
+      - name: Run test coverage
+        run: |
+          make test-coverage
+      - name: SonarQubeScan
+        uses: SonarSource/sonarqube-scan-action@v7
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
