@@ -33,4 +33,4 @@ jobs:
           args: >
             -Dsonar.projectKey=alexa-brave_python-project-50
             -Dsonar.organization=alexa-brave
-            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.python.coverage.reportPaths=tests/coverage/coverage.xml
