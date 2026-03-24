@@ -9,6 +9,8 @@ jobs:
     steps:
     # git clone репозитория
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
     # устанавливает Python нужной версии
       - name: Set up Python
         uses: actions/setup-python@v6
