@@ -1,4 +1,4 @@
-def generate_diff(file1, file2) -> str:
+def generate_diff(file1, file2) -> str:  # noqa: C901
 
     keys = sorted(file1.keys() | file2.keys())
     strings = ['{']
