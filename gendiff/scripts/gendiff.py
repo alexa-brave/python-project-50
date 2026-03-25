@@ -1,6 +1,8 @@
 import argparse
 import json
 
+import yaml
+
 from ..diff import generate_diff
 
 
@@ -18,11 +20,19 @@ def files_parser():
         )
 
     args = parser.parse_args()
+    print('args = ', args)
 
-    with open(args.first_file) as f:
-        data1 = json.load(f)
-    with open(args.second_file) as f:
-        data2 = json.load(f)
+    if args.first_file is json:
+        with open(args.first_file) as f:
+            data1 = json.load(f)
+        with open(args.second_file) as f:
+            data2 = json.load(f)
+            
+    elif args.first_file is yaml:
+        with open(args.first_file) as f:
+            data1 = yaml.load(f)
+        with open(args.second_file) as f:
+            data2 = yaml.load(f)
     return data1, data2
 
 

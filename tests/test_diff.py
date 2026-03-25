@@ -1,43 +1,59 @@
 import json
 from pathlib import Path
 
+import yaml
+
 from gendiff.diff import generate_diff
-
-from ..gendiff.diff_yaml import func
-
-# from gendiff.scripts.gendiff import files_parser
+from gendiff.scripts.gendiff import files_parser
 
 
+# путь к фикстурам
 def get_test_diff(filename):
     return Path(__file__).parent / "fixtures" / filename
 
 
+# чтение файла эталона результатов .txt
 def read_file(filename):
     return get_test_diff(filename).read_text()
 
 
-def parser_json(filepath):
+# парсеры для тестов
+def parser_test_json(filepath):
     with open(get_test_diff(filepath)) as f:
         data = json.load(f)
     return data
 
 
-def test_diff():
-    file1 = parser_json('file1.json')
-    file2 = parser_json('file2.json')
+def parser_test_yaml(filepath):
+    with open(get_test_diff(filepath)) as f:
+        data = yaml.load(f)
+    return data
+
+
+# тестs перевода файлов в плоские списки
+def test_parser_json():
+    file1 = files_parser('file1.json')
+    file2 = files_parser('file2.json')
+    assert (file1, file2) == files_parser()
+
+
+def test_parser_yaml():
+    file1 = files_parser('file1.yaml')
+    file2 = files_parser('file2.yaml')
+    assert (file1, file2) == files_parser()
+
+
+# тестируем сравнение двух плоских списков
+def test_diff_json():
+    file1 = parser_test_json('file1.json')
+    file2 = parser_test_json('file2.json')
     result = read_file('expected.txt')
     diff = generate_diff(file1, file2)
     assert diff == result
 
 
-# def test_files_parser():
-#     file1 = parser('file1.json')
-#     file2 = parser('file2.json')
-#     assert (file1, file2) == files_parser()
-
-
-def test_func():
-    data1 = func_parsing('file1.yaml')
-    data2 = func_parsing('file2.yaml')
+def test_diff_yaml():
+    data1 = files_parser('file1.yaml')
+    data2 = files_parser('file2.yaml')
     result = read_file('expected.txt')
-    assert func(data1, data2) == result
+    assert generate_diff(data1, data2) == result
