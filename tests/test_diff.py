@@ -3,6 +3,8 @@ from pathlib import Path
 
 from gendiff.diff import generate_diff
 
+from ..gendiff.diff_yaml import func
+
 # from gendiff.scripts.gendiff import files_parser
 
 
@@ -32,3 +34,10 @@ def test_diff():
 #     file1 = parser('file1.json')
 #     file2 = parser('file2.json')
 #     assert (file1, file2) == files_parser()
+
+
+def test_func():
+    data1 = func_parsing('file1.yaml')
+    data2 = func_parsing('file2.yaml')
+    result = read_file('expected.txt')
+    assert func(data1, data2) == result
