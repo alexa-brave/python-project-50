@@ -29,7 +29,7 @@ def files_parser():
         with open(args.second_file) as f:
             data2 = json.load(f)
 
-    elif args.first_file[-4:] == 'yaml':
+    elif args.first_file[-4:] == 'yaml' or args.first_file[-3:] == 'yml':
         with open(args.first_file) as f:
             data1 = yaml.load(f, Loader=SafeLoader)
         with open(args.second_file) as f:
