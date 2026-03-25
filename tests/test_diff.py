@@ -1,3 +1,4 @@
+import argparse
 import json
 from pathlib import Path
 
@@ -5,8 +6,7 @@ import yaml
 from yaml import SafeLoader
 
 from gendiff.diff import generate_diff
-
-# from gendiff.scripts.gendiff import files_parser
+from gendiff.scripts.gendiff import reading_files
 
 
 # путь к фикстурам
@@ -32,17 +32,29 @@ def parser_test_yaml(filepath):
     return data
 
 
-# тестs перевода файлов в плоские списки
-# def test_parser_json():
-#     file1 = files_parser('file1.json')
-#     file2 = files_parser('file2.json')
-#     assert (file1, file2) == files_parser()
+# тесты перевода файлов в плоские списки
+def test_parser_json():
+    args = argparse.Namespace(
+    first_file='tests/fixtures/file1.json',
+    second_file='tests/fixtures/file2.json',
+    format=None,
+)
+    file1_test = parser_test_json('file1.json')
+    file2_test = parser_test_json('file2.json')
+    reading = reading_files(args)
+    assert (file1_test, file2_test) == reading
 
 
-# def test_parser_yaml():
-#     file1 = files_parser('file1.yaml')
-#     file2 = files_parser('file2.yaml')
-#     assert (file1, file2) == files_parser()
+def test_parser_yaml():
+    args = argparse.Namespace(
+    first_file='tests/fixtures/file1.yaml',
+    second_file='tests/fixtures/file2.yaml',
+    format=None,
+)
+    file1_test = parser_test_yaml('file1.yaml')
+    file2_test = parser_test_yaml('file2.yaml')
+    reading = reading_files(args)
+    assert (file1_test, file2_test) == reading
 
 
 # тестируем сравнение двух плоских списков
