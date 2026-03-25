@@ -4,7 +4,7 @@ import json
 from ..diff import generate_diff
 
 
-def main():
+def files_parser():
     parser = argparse.ArgumentParser(
     description='Compares two configuration files and shows a difference.')
 
@@ -23,7 +23,11 @@ def main():
         data1 = json.load(f)
     with open(args.second_file) as f:
         data2 = json.load(f)
-  
+    return data1, data2
+
+
+def main():
+    data1, data2 = files_parser()
     result = generate_diff(data1, data2)
 
     return result
