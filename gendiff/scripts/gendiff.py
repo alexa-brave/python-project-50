@@ -21,8 +21,12 @@ def files_parser():
         )
 
     args = parser.parse_args()
-    print('args = ', args)
+    # print(args)
+    print()
+    return args
 
+
+def reading_files(args):
     if args.first_file[-4:] == 'json':
         with open(args.first_file) as f:
             data1 = json.load(f)
@@ -38,7 +42,8 @@ def files_parser():
 
 
 def main():
-    data1, data2 = files_parser()
+    args = files_parser()
+    data1, data2 = reading_files(args)
     result = generate_diff(data1, data2)
 
     return result
