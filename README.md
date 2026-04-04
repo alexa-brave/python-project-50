@@ -4,4 +4,4 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=alexa-brave_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=alexa-brave_python-project-50)
 
 ## Install and demo gendiff json and yaml:
-[![asciicast](https://asciinema.org/a/Qfe3dkOKlVVlTCHG.svg)](https://asciinema.org/a/Qfe3dkOKlVVlTCHG)
+[![asciicast](https://asciinema.org/a/mm7GgtC8qK6RzMCH.svg)](https://asciinema.org/a/mm7GgtC8qK6RzMCH)
