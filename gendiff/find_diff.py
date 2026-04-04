@@ -1,0 +1,37 @@
+def generate_diff(data1: dict, data2: dict) -> dict:
+    result = {}
+    keys = sorted(data1.keys() | data2.keys())
+
+    for key in keys:
+        if key not in data1:
+            result[key] = {
+                'status': 'added',
+                'value': data2[key],
+            }
+        elif key not in data2:
+            result[key] = {
+                'status': 'deleted',
+                'value': data1[key],
+            }
+        else:
+            value1 = data1[key]
+            value2 = data2[key]
+
+            if isinstance(value1, dict) and isinstance(value2, dict):
+                result[key] = {
+                    'status': 'nested',
+                    'children': generate_diff(value1, value2),
+                }
+            elif value1 == value2:
+                result[key] = {
+                    'status': 'same',
+                    'value': value1,
+                }
+            else:
+                result[key] = {
+                    'status': 'changed',
+                    'old_value': value1,
+                    'new_value': value2,
+                }
+
+    return result
