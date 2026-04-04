@@ -3,8 +3,9 @@ import json
 import yaml
 from yaml import SafeLoader
 
-from ..diff import generate_diff
 from ..files_parser import files_parser
+from ..find_diff import generate_diff
+from ..visual import stylish
 
 
 def reading_files(args):
@@ -26,5 +27,5 @@ def main():
     args = files_parser()
     data1, data2 = reading_files(args)
     result = generate_diff(data1, data2)
-
-    return result
+    view = stylish(result)
+    return view
