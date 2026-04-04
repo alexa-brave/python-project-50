@@ -5,7 +5,7 @@ from pathlib import Path
 import yaml
 from yaml import SafeLoader
 
-from gendiff.find_diff import generate_diff
+from gendiff.find_diff import build_diff
 from gendiff.scripts.gendiff import reading_files
 from gendiff.visual import stylish
 
@@ -63,7 +63,7 @@ def test_diff_json():
     file1 = parser_test_json('file1.json')
     file2 = parser_test_json('file2.json')
     result = read_file('expected.txt')
-    diff = generate_diff(file1, file2)
+    diff = build_diff(file1, file2)
     assert stylish(diff) == result
 
 
@@ -71,7 +71,7 @@ def test_diff_yaml():
     file1 = parser_test_yaml('file1.yaml')
     file2 = parser_test_yaml('file2.yaml')
     result = read_file('expected.txt')
-    diff = generate_diff(file1, file2)
+    diff = build_diff(file1, file2)
     assert stylish(diff) == result
 
 
@@ -80,7 +80,7 @@ def test_diff_json_rec():
     file1 = parser_test_json('file1_rec.json')
     file2 = parser_test_json('file2_rec.json')
     result = read_file('expected_rec.txt')
-    diff = generate_diff(file1, file2)
+    diff = build_diff(file1, file2)
     assert stylish(diff) == result
 
 
@@ -88,5 +88,5 @@ def test_diff_yaml_rec():
     file1 = parser_test_yaml('file1_rec.yaml')
     file2 = parser_test_yaml('file2_rec.yaml')
     result = read_file('expected_rec.txt')
-    diff = generate_diff(file1, file2)
+    diff = build_diff(file1, file2)
     assert stylish(diff) == result

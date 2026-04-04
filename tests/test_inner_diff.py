@@ -1,8 +1,8 @@
-from gendiff.find_diff import generate_diff
+from gendiff.find_diff import build_diff, generate_diff
 
 
 # тестируем внутренний diff
-def test_generate_diff_changed():
+def test_build_diff_changed():
     first = {'a': 1}
     second = {'a': 2}
 
@@ -14,10 +14,10 @@ def test_generate_diff_changed():
         }
     }
 
-    assert generate_diff(first, second) == expected
+    assert build_diff(first, second) == expected
 
 
-def test_generate_diff_added_deleted_same():
+def test_build_diff_added_deleted_same():
     first = {'a': 1, 'b': 2}
     second = {'b': 2, 'c': 3}
 
@@ -36,10 +36,10 @@ def test_generate_diff_added_deleted_same():
         },
     }
 
-    assert generate_diff(first, second) == expected
+    assert build_diff(first, second) == expected
 
 
-def test_generate_diff_nested():
+def test_build_diff_nested():
     first = {'common': {'key': 'value'}}
     second = {'common': {'key': 'value', 'ops': 'vops'}}
 
@@ -59,4 +59,8 @@ def test_generate_diff_nested():
         },
     }
 
-    assert generate_diff(first, second) == expected
+    assert build_diff(first, second) == expected
+
+
+def test_generate_diff_added_deleted():
+    assert generate_diff({'a': 1}, {'b': 2}) == '{\n  - a: 1\n  + b: 2\n}'
