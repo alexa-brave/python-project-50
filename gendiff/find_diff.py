@@ -1,4 +1,7 @@
-def generate_diff(data1: dict, data2: dict) -> dict:
+from .visual import stylish
+
+
+def build_diff(data1: dict, data2: dict) -> dict:
     result = {}
     keys = sorted(data1.keys() | data2.keys())
 
@@ -20,7 +23,7 @@ def generate_diff(data1: dict, data2: dict) -> dict:
             if isinstance(value1, dict) and isinstance(value2, dict):
                 result[key] = {
                     'status': 'nested',
-                    'children': generate_diff(value1, value2),
+                    'children': build_diff(value1, value2),
                 }
             elif value1 == value2:
                 result[key] = {
@@ -35,3 +38,10 @@ def generate_diff(data1: dict, data2: dict) -> dict:
                 }
 
     return result
+
+
+def generate_diff(data1, data2, format_name='stylish'):
+    tree = build_diff(data1, data2)
+
+    if format_name == 'stylish':
+        return stylish(tree)
