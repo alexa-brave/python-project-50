@@ -40,7 +40,7 @@ def build_diff(data1: dict, data2: dict) -> dict:
     return result
 
 
-def generate_diff(data1, data2, format_name='stylish'):
+def generate_diff(data1, data2, format_name):
     tree = build_diff(data1, data2)
     if format_name == 'plain':
         return plain_formater(tree)
