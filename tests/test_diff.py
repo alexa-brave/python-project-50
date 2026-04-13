@@ -95,10 +95,12 @@ def test_diff_yaml_rec():
 def test_plain_format_json():
     file1 = parser_test_json('file1_rec.json')
     file2 = parser_test_json('file2_rec.json')
-    assert generate_diff(file1, file2) == read_file('expected_plain.txt')
+    format_name = 'plain'
+    assert generate_diff(file1, file2, format_name) == read_file('expected_plain.txt')  # noqa: E501
 
 
 def test_plain_format_yaml():
     file1 = parser_test_yaml('file1_rec.yaml')
     file2 = parser_test_yaml('file2_rec.yaml')
-    assert generate_diff(file1, file2) == read_file('expected_plain.txt')
+    format_name = 'plain'
+    assert generate_diff(file1, file2, format_name) == read_file('expected_plain.txt')  # noqa: E501
