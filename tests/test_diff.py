@@ -7,7 +7,7 @@ from yaml import SafeLoader
 
 from gendiff.find_diff import build_diff, generate_diff
 from gendiff.scripts.gendiff import reading_files
-from gendiff.visual import stylish
+from gendiff.visual.formater_stylish import stylish
 
 
 # путь к фикстурам

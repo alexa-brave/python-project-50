@@ -1,4 +1,5 @@
-from .visual import plain_formater, stylish
+from .visual.formater_plain import plain_formater
+from .visual.formater_stylish import stylish
 
 
 def build_diff(data1: dict, data2: dict) -> dict:

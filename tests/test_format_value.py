@@ -1,4 +1,4 @@
-from gendiff.visual import format_value
+from gendiff.visual.value_format import format_value
 
 
 def test_format_value_special():
