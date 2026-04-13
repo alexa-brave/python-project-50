@@ -3,5 +3,5 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alexa-brave_python-project-50&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=alexa-brave_python-project-50)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=alexa-brave_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=alexa-brave_python-project-50)
 
-## Install and demo gendiff json and yaml:
-[![asciicast](https://asciinema.org/a/mm7GgtC8qK6RzMCH.svg)](https://asciinema.org/a/mm7GgtC8qK6RzMCH)
+## ascinema gendiff from json, yaml; to stylish, plain:
+[![asciicast](https://asciinema.org/a/4dowJM4u97rOga1O.svg)](https://asciinema.org/a/4dowJM4u97rOga1O)
