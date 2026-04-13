@@ -63,4 +63,4 @@ def test_build_diff_nested():
 
 
 def test_generate_diff_added_deleted():
-    assert generate_diff({'a': 1}, {'b': 2}) == '{\n  - a: 1\n  + b: 2\n}'
+    assert generate_diff({'a': 1}, {'b': 2}, '') == '{\n  - a: 1\n  + b: 2\n}'
