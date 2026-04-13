@@ -25,5 +25,5 @@ def reading_files(args):
 def main():
     args = files_parser()
     data1, data2 = reading_files(args)
-    result = generate_diff(data1, data2)
+    result = generate_diff(data1, data2, args.format)
     return result
