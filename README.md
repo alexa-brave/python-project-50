@@ -4,4 +4,4 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=alexa-brave_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=alexa-brave_python-project-50)
 
 ## ascinema gendiff from json, yaml; to stylish, plain:
-[![asciicast](https://asciinema.org/a/4dowJM4u97rOga1O.svg)](https://asciinema.org/a/4dowJM4u97rOga1O)
+[![asciicast](https://asciinema.org/a/HplmDCyez0Gg4nXb.svg)](https://asciinema.org/a/HplmDCyez0Gg4nXb)
