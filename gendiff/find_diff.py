@@ -1,3 +1,4 @@
+from .visual.formater_json import json_formater
 from .visual.formater_plain import plain_formater
 from .visual.formater_stylish import stylish
 
@@ -43,7 +44,10 @@ def build_diff(data1: dict, data2: dict) -> dict:
 
 def generate_diff(data1, data2, format_name):
     tree = build_diff(data1, data2)
+    
     if format_name == 'plain':
         return plain_formater(tree)
+    elif format_name == 'json':
+        return json_formater(tree)
     else:
         return stylish(tree)
