@@ -104,3 +104,10 @@ def test_plain_format_yaml():
     file2 = parser_test_yaml('file2_rec.yaml')
     format_name = 'plain'
     assert generate_diff(file1, file2, format_name) == read_file('expected_plain.txt')  # noqa: E501
+
+
+def test_json_formater():
+    file1 = parser_test_json('file1_rec.json')
+    file2 = parser_test_yaml('file2_rec.json')
+    format_name = 'json'
+    assert generate_diff(file1, file2, format_name) == read_file('expected_json.txt')  # noqa: E501
