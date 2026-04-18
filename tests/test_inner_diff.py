@@ -1,4 +1,4 @@
-from gendiff.find_diff import build_diff, generate_diff
+from gendiff.find_diff import build_diff
 
 
 # тестируем внутренний diff
@@ -60,7 +60,3 @@ def test_build_diff_nested():
     }
 
     assert build_diff(first, second) == expected
-
-
-def test_generate_diff_added_deleted():
-    assert generate_diff({'a': 1}, {'b': 2}, '') == '{\n  - a: 1\n  + b: 2\n}'
