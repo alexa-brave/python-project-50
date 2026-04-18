@@ -1,4 +1,4 @@
-from gendiff.find_diff import build_diff
+from gendiff.scripts.find_diff import build_diff
 
 
 # тестируем внутренний diff

@@ -5,10 +5,10 @@ from pathlib import Path
 import yaml
 from yaml import SafeLoader
 
-from gendiff.find_diff import build_diff, reading_files
-from gendiff.visual.formater_json import json_formater
-from gendiff.visual.formater_plain import plain_formater
-from gendiff.visual.formater_stylish import stylish
+from gendiff.formatters.formater_json import json_formater
+from gendiff.formatters.formater_plain import plain_formater
+from gendiff.formatters.formater_stylish import stylish
+from gendiff.scripts.find_diff import build_diff, reading_files
 
 
 # путь к фикстурам
