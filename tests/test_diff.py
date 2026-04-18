@@ -5,8 +5,9 @@ from pathlib import Path
 import yaml
 from yaml import SafeLoader
 
-from gendiff.find_diff import build_diff, generate_diff
-from gendiff.scripts.gendiff import reading_files
+from gendiff.find_diff import build_diff, reading_files
+from gendiff.visual.formater_json import json_formater
+from gendiff.visual.formater_plain import plain_formater
 from gendiff.visual.formater_stylish import stylish
 
 
@@ -42,7 +43,7 @@ def test_parser_json():
 )
     file1_test = parser_test_json('file1.json')
     file2_test = parser_test_json('file2.json')
-    reading = reading_files(args)
+    reading = reading_files(args.first_file, args.second_file)
     assert (file1_test, file2_test) == reading
 
 
@@ -54,7 +55,7 @@ def test_parser_yaml():
 )
     file1_test = parser_test_yaml('file1.yaml')
     file2_test = parser_test_yaml('file2.yaml')
-    reading = reading_files(args)
+    reading = reading_files(args.first_file, args.second_file)
     assert (file1_test, file2_test) == reading
 
 
@@ -70,7 +71,7 @@ def test_diff_json():
 def test_diff_yaml():
     file1 = parser_test_yaml('file1.yaml')
     file2 = parser_test_yaml('file2.yaml')
-    result = read_file('expected.txt')
+    result = read_file('expected.txt')  # /////
     diff = build_diff(file1, file2)
     assert stylish(diff) == result
 
@@ -95,19 +96,19 @@ def test_diff_yaml_rec():
 def test_plain_format_json():
     file1 = parser_test_json('file1_rec.json')
     file2 = parser_test_json('file2_rec.json')
-    format_name = 'plain'
-    assert generate_diff(file1, file2, format_name) == read_file('expected_plain.txt')  # noqa: E501
+    diff = build_diff(file1, file2)
+    assert plain_formater(diff) == read_file('expected_plain.txt')
 
 
 def test_plain_format_yaml():
     file1 = parser_test_yaml('file1_rec.yaml')
     file2 = parser_test_yaml('file2_rec.yaml')
-    format_name = 'plain'
-    assert generate_diff(file1, file2, format_name) == read_file('expected_plain.txt')  # noqa: E501
+    diff = build_diff(file1, file2)
+    assert plain_formater(diff) == read_file('expected_plain.txt')
 
 
 def test_json_formater():
     file1 = parser_test_json('file1_rec.json')
     file2 = parser_test_yaml('file2_rec.json')
-    format_name = 'json'
-    assert generate_diff(file1, file2, format_name) == read_file('expected_json.txt')  # noqa: E501
+    diff = build_diff(file1, file2)
+    assert json_formater(diff) == read_file('expected_json.txt')
