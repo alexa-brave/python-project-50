@@ -13,7 +13,7 @@ from gendiff.scripts.find_diff import build_diff, reading_files
 
 # путь к фикстурам
 def get_test_diff(filename):
-    return Path(__file__).parent / "fixtures" / filename
+    return Path(__file__).parent / "test_data" / filename
 
 
 # чтение файла эталона результатов .txt
@@ -37,8 +37,8 @@ def parser_test_yaml(filepath):
 # тесты перевода файлов в плоские списки
 def test_parser_json():
     args = argparse.Namespace(
-    first_file='tests/fixtures/file1.json',
-    second_file='tests/fixtures/file2.json',
+    first_file='tests/test_data/file1.json',
+    second_file='tests/test_data/file2.json',
     format=None,
 )
     file1_test = parser_test_json('file1.json')
@@ -49,8 +49,8 @@ def test_parser_json():
 
 def test_parser_yaml():
     args = argparse.Namespace(
-    first_file='tests/fixtures/file1.yaml',
-    second_file='tests/fixtures/file2.yaml',
+    first_file='tests/test_data/file1.yaml',
+    second_file='tests/test_data/file2.yaml',
     format=None,
 )
     file1_test = parser_test_yaml('file1.yaml')
