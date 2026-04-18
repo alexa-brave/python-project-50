@@ -4,9 +4,9 @@ from pathlib import Path
 import yaml
 from yaml import SafeLoader
 
-from .visual.formater_json import json_formater
-from .visual.formater_plain import plain_formater
-from .visual.formater_stylish import stylish
+from ..formatters.formater_json import json_formater
+from ..formatters.formater_plain import plain_formater
+from ..formatters.formater_stylish import stylish
 
 
 def reading_files(path1: str, path2: str):
