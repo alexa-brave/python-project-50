@@ -3,7 +3,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alexa-brave_python-project-50&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=alexa-brave_python-project-50)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=alexa-brave_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=alexa-brave_python-project-50)
 
-## ascinema gendiff from json, yaml; to stylish, plain:
+## Ascinema gendiff from json, yaml; to stylish, plain, json:
 [![asciicast](https://asciinema.org/a/HplmDCyez0Gg4nXb.svg)](https://asciinema.org/a/HplmDCyez0Gg4nXb)
 
 ## Описание
@@ -20,18 +20,18 @@ make install
 ## Запуск
 uv run gendiff path/to/file1.json path/to/file2.json
 
-### Форматы вывода
-## По умолчанию используется формат stylish:
+## Форматы вывода
+### По умолчанию используется формат stylish:
 ```bash
 uv run gendiff file1.json file2.json
 ```
 
-## Для plain:
+### Для plain:
 ```bash
 uv run gendiff file1.json file2.json -f plain
 ```
 
-## Для json:
+### Для json:
 ```bash
 uv run gendiff file1.json file2.json -f json
 ```
