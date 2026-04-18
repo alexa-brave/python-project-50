@@ -20,15 +20,17 @@ make install
 ## Запуск
 uv run gendiff path/to/file1.json path/to/file2.json
 
-## Форматы вывода
+### Форматы вывода
 ## По умолчанию используется формат stylish:
 ```bash
 uv run gendiff file1.json file2.json
 ```
+
 ## Для plain:
 ```bash
 uv run gendiff file1.json file2.json -f plain
 ```
+
 ## Для json:
 ```bash
 uv run gendiff file1.json file2.json -f json
