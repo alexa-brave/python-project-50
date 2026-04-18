@@ -1,5 +1,5 @@
-from files_parser import files_parser
-from find_diff import generate_diff
+from .files_parser import files_parser
+from .find_diff import generate_diff
 
 
 def main():
