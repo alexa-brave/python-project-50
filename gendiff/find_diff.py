@@ -1,6 +1,29 @@
+import json
+from pathlib import Path
+
+import yaml
+from yaml import SafeLoader
+
 from .visual.formater_json import json_formater
 from .visual.formater_plain import plain_formater
 from .visual.formater_stylish import stylish
+
+
+def reading_files(path1: str, path2: str):
+    suffix = Path(path1).suffix  # расширение файла
+
+    if suffix == '.json':
+        with open(path1) as f:
+            data1 = json.load(f)
+        with open(path2) as f:
+            data2 = json.load(f)
+
+    elif suffix == '.yaml' or suffix == '.yml':
+        with open(path1) as f:
+            data1 = yaml.load(f, Loader=SafeLoader)
+        with open(path2) as f:
+            data2 = yaml.load(f, Loader=SafeLoader)
+    return data1, data2
 
 
 def build_diff(data1: dict, data2: dict) -> dict:
@@ -42,7 +65,8 @@ def build_diff(data1: dict, data2: dict) -> dict:
     return result
 
 
-def generate_diff(data1, data2, format_name='stylish'):
+def generate_diff(filepath1, filepath2, format_name='stylish'):
+    data1, data2 = reading_files(filepath1, filepath2)
     tree = build_diff(data1, data2)
     
     if format_name == 'plain':
